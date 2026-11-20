@@ -47,7 +47,7 @@
  {"@type":"Question","name":"Сколько стоит мойка?","acceptedAnswer":{"@type":"Answer","text":"Мойка в 3 фазы 2 500 ₽, мойка и консервация двигателя 3 000 ₽, антидождь 1 500 ₽. Цену комплекса с салоном подскажем в чате."}},
  {"@type":"Question","name":"Сколько стоит детейлинг?","acceptedAnswer":{"@type":"Answer","text":"Полировка кузова от 12 000 ₽, керамика от 12 000 ₽, химчистка салона от 12 000 ₽, полировка фар 5 000 ₽, оклейка плёнкой от 70 000 ₽, тонировка от 7 000 ₽."}},
  {"@type":"Question","name":"Где находится автомойка?","acceptedAnswer":{"@type":"Answer","text":"Деревня Верея, Островецкое шоссе, 3, Раменский округ. Ежедневно с 9:00 до 21:00, есть парковка."}},
- {"@type":"Question","name":"Можно подождать на месте?","acceptedAnswer":{"@type":"Answer","text":"Да. Есть кафе и комната ожидания, кофе, чай и Wi‑Fi. Можно и оставить машину и вернуться, когда будет готова."}},
+ {"@type":"Question","name":"Можно подождать на месте?","acceptedAnswer":{"@type":"Answer","text":"Да. Есть клиентская зона: комфортное помещение с телевизором, кафе, кофе, чай и Wi‑Fi. Можно и оставить машину и вернуться, когда будет готова."}},
  {"@type":"Question","name":"Моете мотоциклы и грузовики?","acceptedAnswer":{"@type":"Answer","text":"Да, моем мотоциклы и грузовики, днище, колёса и двигатель."}},
  {"@type":"Question","name":"Как можно оплатить?","acceptedAnswer":{"@type":"Answer","text":"Наличными, картой или переводом, есть рассрочка."}}]}
 </script>
@@ -185,7 +185,7 @@ nav .btn{height:48px;padding:0 24px}
 .js .rq{opacity:0;transform:translateY(20px)}.hero.go .rq{opacity:1;transform:none;transition:opacity 1s var(--ease) 1.5s,transform 1.1s var(--ease) 1.5s}
 /* бегущая строка услуг */
 .run{grid-column:1/-1;margin-top:22px;border-top:1px solid var(--line);overflow:hidden;padding:18px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.run div{display:flex;width:max-content;animation:run 34s linear infinite}
+.run div{display:flex;width:max-content;animation:run 16s linear infinite}
 .run span{display:flex;align-items:center;gap:44px;padding-right:44px;font:900 clamp(22px,2vw,30px)/1 var(--head);text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap}
 .run span i{font-style:normal;color:var(--acc);font-size:.8em}
 @keyframes run{to{transform:translateX(-50%)}}.run.off div{animation-play-state:paused}
@@ -206,6 +206,37 @@ nav .btn{height:48px;padding:0 24px}
 .door li{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:9px 14px;font-size:14.5px;color:var(--tx2);background:rgba(0,0,0,.25)}
 .door .go2{display:inline-flex;align-items:center;gap:10px;font:700 16px/1 var(--body);color:var(--acc)}
 .door .go2 svg{width:20px;height:20px;transition:transform .35s var(--ease)}.door:hover .go2 svg{transform:translateX(6px)}
+
+/* АКЦИИ: луч бежит по рамке (Border Beam, 21st.dev) + снег. ЧТОБЫ ПОМЕНЯТЬ АКЦИЮ: правьте текст в HTML блока #promo */
+.promo-g{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:clamp(12px,1.6vw,22px);margin-top:56px}
+.pc{position:relative;border-radius:var(--r);background:linear-gradient(180deg,#161618,#101012);padding:clamp(24px,3vw,44px);overflow:hidden;isolation:isolate;border:1px solid var(--line);display:flex;flex-direction:column;align-items:flex-start;min-height:340px}
+.pc.beam{border-color:transparent}
+.pc.beam:before{content:"";position:absolute;left:50%;top:50%;width:220%;aspect-ratio:1;z-index:-2;background:conic-gradient(from 0deg,transparent 0 72%,rgba(var(--acc-rgb),.85) 84%,#fff6c8 87%,transparent 93%);transform:translate(-50%,-50%);animation:glowspin 7s linear infinite}
+.pc.beam:after{content:"";position:absolute;inset:1.5px;z-index:-1;border-radius:calc(var(--r) - 1.5px);background:radial-gradient(110% 90% at 90% 0%,rgba(var(--acc-rgb),.13),transparent 55%),linear-gradient(180deg,#161618,#0f0f11)}
+.promo.off .pc.beam:before,.promo.off .sn i{animation-play-state:paused}
+.pc .tg{font:700 12px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--accInk);background:var(--acc);padding:9px 13px;border-radius:999px}
+.pc .tg.g{background:none;color:var(--tx2);border:1px solid rgba(255,255,255,.18)}
+.pc h3{font:900 clamp(30px,3.6vw,56px)/.95 var(--head);text-transform:uppercase;letter-spacing:-.04em;margin:22px 0 14px}
+.pc p{color:var(--tx2);font-size:16.5px;max-width:520px}
+.pc .pb{display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:auto;padding-top:28px;width:100%;justify-content:space-between}
+.pc .pp{font:900 clamp(56px,6vw,96px)/.85 var(--head);letter-spacing:-.05em;color:var(--acc)}.pc .pp small{display:block;font:500 14px/1.3 var(--body);letter-spacing:0;color:var(--mut);margin-top:10px}
+.sn{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.sn i{position:absolute;top:-10px;width:var(--s,4px);height:var(--s,4px);border-radius:50%;background:rgba(255,255,255,.7);animation:snow var(--t,9s) linear infinite;animation-delay:var(--d0,0s)}
+@keyframes snow{0%{transform:translate(0,0);opacity:0}10%{opacity:.9}100%{transform:translate(var(--x,30px),460px);opacity:0}}
+
+/* СПОРТКАРЫ ПЕРЕД ЗАЕЗДОМ: полосы скорости бегут по фото. Фото заменить на McLaren / BMW, когда студия пришлёт */
+.sport{padding-top:0}
+.sp{position:relative;border-radius:28px;overflow:hidden;min-height:clamp(500px,72vh,660px);display:flex;align-items:flex-end;padding:clamp(24px,4vw,60px);isolation:isolate;border:1px solid var(--line)}
+.sp>img{position:absolute;inset:0;z-index:-3;width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.sp:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,9,10,.96),rgba(9,9,10,.7) 42%,rgba(9,9,10,.05) 80%)}
+.spd{position:absolute;inset:0;z-index:-2;overflow:hidden;pointer-events:none;mix-blend-mode:screen}
+.spd i{position:absolute;left:0;height:2px;width:28%;background:linear-gradient(90deg,transparent,rgba(var(--acc-rgb),.9),#fff);transform:translateX(-120%);animation:spd var(--t,2.6s) cubic-bezier(.5,0,.5,1) infinite;animation-delay:var(--d0,0s);opacity:.7}
+@keyframes spd{to{transform:translateX(480%)}}
+.sport.off .spd i{animation-play-state:paused}
+.sp .tx{max-width:640px}
+.sp p{color:var(--tx2);font-size:17px;margin-top:22px}
+.sp ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 28px}
+.sp li{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 14px;font-size:14.5px;color:var(--tx2);background:rgba(0,0,0,.35)}
 
 /* ФОТО НА ВЕСЬ ЭКРАН ПРИ СКРОЛЛЕ (Scroll Media Expansion, 21st.dev). JS ставит --p от 0 до 1 */
 .xp{padding:0;height:240vh}
@@ -447,6 +478,8 @@ html.lock{overflow:hidden}
  .rq{left:auto;right:14px;bottom:14px;width:min(64%,360px);padding:16px 18px;border-radius:18px}.rq p{font-size:15px}.rq small{font-size:12.5px}
  .calc{max-width:none;margin-top:58px}
  .two,.wh,.wash,.ctc,.faq,.how,.wtop{grid-template-columns:minmax(0,1fr)}
+ .promo-g{grid-template-columns:minmax(0,1fr)}.pc{min-height:0}
+ .sp{align-items:flex-end}.sp:after{background:linear-gradient(0deg,rgba(9,9,10,.97) 35%,rgba(9,9,10,.55) 65%,rgba(9,9,10,.1))}
  .wash .side,.how .side{position:static}
  .wt{grid-template-columns:minmax(0,1fr)}
  .pr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:14px;align-items:center}
@@ -488,14 +521,14 @@ html.lock{overflow:hidden}
  .xp-q p{font-size:26px}
  .ms .lb{left:auto;right:20px}.mtop .chip2{font-size:10.5px;letter-spacing:.08em}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}.gloss,.tl-dot,.btn.sh:after{display:none}.js .mplane,.js .ms,.js .ms .lb{opacity:1;transform:none}.tl-fill{transform:none}.ts .num:after{opacity:1}.mq{height:auto;max-height:720px;overflow:auto}.js [data-r],.js .hero .fx,.js .bk .bk-o,.js .thumbs button,.js .rq{opacity:1;transform:none}.ln b,.js [data-img]>img,.js .hv>img{transform:none!important}.js [data-img]:after{transform:scaleY(0)}.js .hv{clip-path:none}.xp{height:auto}.xp-st{position:relative;--p:1!important}.wcard{transform:none}.cup .stm path{opacity:.6}.wv path{opacity:1}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}.gloss,.tl-dot,.btn.sh:after{display:none}.js .mplane,.js .ms,.js .ms .lb{opacity:1;transform:none}.tl-fill{transform:none}.ts .num:after{opacity:1}.mq{height:auto;max-height:720px;overflow:auto}.js [data-r],.js .hero .fx,.js .bk .bk-o,.js .thumbs button,.js .rq{opacity:1;transform:none}.ln b,.js [data-img]>img,.js .hv>img{transform:none!important}.js [data-img]:after{transform:scaleY(0)}.js .hv{clip-path:none}.xp{height:auto}.xp-st{position:relative;--p:1!important}.wcard{transform:none}.sn,.spd{display:none}.cup .stm path{opacity:.6}.wv path{opacity:1}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <!-- 14. шапка -->
 <nav id="nav"><a href="#top" class="logo"><img src="img/logo.jpg" alt="" width="44" height="44"><i style="font-style:normal">PRO <span>Детейлинг</span></i></a>
- <div class="links"><a href="#wash">Мойка</a><a href="#detailing">Детейлинг</a><a href="#works">Работы</a><a href="#wait">Пока ждёте</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a></div>
+ <div class="links"><a href="#wash">Мойка</a><a href="#detailing">Детейлинг</a><a href="#promo">Акции</a><a href="#works">Работы</a><a href="#wait">Пока ждёте</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a></div>
  <a class="nph" href="tel:+79365555909">+7 (936) 555-59-09</a>
  <a class="btn a" href="#book" data-book>Записаться</a></nav>
 
@@ -536,6 +569,19 @@ html.lock{overflow:hidden}
  </div>
 </section>
 
+<!-- АКЦИИ. Чтобы поменять: правьте заголовок, текст и цену ниже. Акция недели: замените текст в правой карточке -->
+<section class="promo" id="promo" style="padding-top:0"><div class="k" data-r>Акции</div><h2>Акции<br><em>сезона и недели</em></h2>
+ <div class="promo-g">
+  <div class="pc beam" data-r><span class="sn" aria-hidden="true"><i style="left:8%;--t:9s;--d0:-2s"></i><i style="left:22%;--s:3px;--t:11s;--d0:-6s;--x:-20px"></i><i style="left:37%;--t:8s;--d0:-4s"></i><i style="left:52%;--s:5px;--t:12s;--d0:-1s;--x:-30px"></i><i style="left:66%;--s:3px;--t:10s;--d0:-7s"></i><i style="left:79%;--t:9.5s;--d0:-3s;--x:-15px"></i><i style="left:91%;--s:3px;--t:11.5s;--d0:-5s"></i></span>
+   <span class="tg">Акция сезона</span><h3>Подготовка<br>к зиме</h3>
+   <p>Обработаем все резинки и уплотнители нано-силиконом. Двери не примерзают, резинки не дубеют и не трескаются. Сделали один раз и забыли на всю зиму.</p>
+   <div class="pb"><div class="pp">400 ₽<small>все резинки машины</small></div><a class="btn a sh" href="#book" data-book data-msg="Здравствуйте! Я с сайта, хочу на акцию: обработка резинок нано-силиконом за 400 ₽. Моя машина: ">Записаться на акцию</a></div></div>
+  <div class="pc" data-r><span class="tg g">Акция недели</span><h3>Каждую неделю новая</h3>
+   <p>Спросите в чате, что действует на этой неделе. Ответим за пару минут.</p>
+   <div class="pb"><a class="btn o" href="#book" data-book data-msg="Здравствуйте! Я с сайта. Какая акция действует на этой неделе?">Узнать акцию недели</a></div></div>
+ </div>
+</section>
+
 <!-- ФОТО РАСКРЫВАЕТСЯ НА ВЕСЬ ЭКРАН при прокрутке -->
 <section class="xp" id="xp" aria-label="Моем как свою">
  <div class="xp-st" id="xpSt">
@@ -549,7 +595,7 @@ html.lock{overflow:hidden}
 <section class="wash" id="wash">
  <div class="side"><div class="k" data-r>Мойка</div><h2>Мойка<br><em>и цены</em></h2>
   <p data-r>Моем в 2–3 фазы профессиональной химией. Дольше, чем на простой мойке, зато без разводов, и машина дольше остаётся чистой.</p>
-  <div class="wfacts" data-r><div>Время<b>комплекс около 1–2 часов</b></div><div>Режим<b>ежедневно 9:00–21:00</b></div><div>Пока моем<b>кафе, кофе и Wi‑Fi</b></div></div></div>
+  <div class="wfacts" data-r><div>Время<b>комплекс около 1–2 часов</b></div><div>Режим<b>ежедневно 9:00–21:00</b></div><div>Пока моем<b>клиентская зона, ТВ, кофе</b></div></div></div>
  <div class="persp"><div class="wcard" id="wcard">
   <div class="wt">
    <div class="pr hit"><span class="hb">Популярное</span><h3>3 фазы</h3><p>Кузов и колёса, без разводов</p><b>2 500 ₽</b><small>по прайсу на Картах</small><a class="btn a" href="#book" data-book data-msg="Здравствуйте! Я с сайта, хочу на мойку в 3 фазы. Моя машина: ">Записаться</a></div>
@@ -557,7 +603,7 @@ html.lock{overflow:hidden}
    <div class="pr"><h3>Двигатель</h3><p>Мойка и консервация</p><b>3 000 ₽</b><small>по прайсу на Картах</small><a class="btn o" href="#book" data-book data-msg="Здравствуйте! Я с сайта, хочу помыть двигатель. Моя машина: ">Записаться</a></div>
   </div>
   <div class="adds"><h4>Добавить к мойке</h4>
-   <div class="row">Антидождь на стёкла<b>1 500 ₽</b></div>
+   <div class="row">Антидождь: передняя полусфера или по кругу<b>от 1 500 ₽</b></div>
    <div class="row">Чистка дисков<b class="o">1 000 ₽</b></div>
    <div class="row">Полимер после мойки<b class="o">1 000 ₽</b></div>
    <div class="row">Удаление битума и липы с кузова<b class="o">2 500 ₽</b></div></div>
@@ -585,6 +631,16 @@ html.lock{overflow:hidden}
  <p class="legend" data-r>Цены «от», с прайса на Яндекс Картах. Точную сумму назовём после осмотра, без навязывания лишнего.</p>
 </section>
 
+<!-- СПОРТКАРЫ ПЕРЕД ЗАЕЗДОМ (рядом гоночная трасса). Фото img/w4.jpg временное, заменить на McLaren / BMW от студии -->
+<section class="sport" id="sport"><div class="sp">
+ <img src="img/w4.jpg" alt="Матовая Audi R8 в боксе PRO Детейлинг" loading="lazy">
+ <span class="spd" aria-hidden="true"><i style="top:18%;--t:2.4s"></i><i style="top:34%;--t:3.1s;--d0:-1.2s"></i><i style="top:52%;--t:2.2s;--d0:-.6s"></i><i style="top:67%;--t:2.8s;--d0:-2s"></i><i style="top:81%;--t:3.4s;--d0:-1.6s"></i></span>
+ <div class="tx"><div class="k" data-r>Спорткары и трек</div><h2>Блеск<br><em>перед заездом</em></h2>
+  <p data-r>Рядом гоночная трасса, поэтому к нам заезжают помыть машину перед заездом и после. Мыли и McLaren, и самую быструю BMW. Бережно, вручную, с блеском, который видно на фото с трека.</p>
+  <ul data-r><li>Перед заездом</li><li>После трека</li><li>Ручная мойка</li><li>Блеск и защита</li></ul>
+  <a class="btn a" href="#book" data-book data-msg="Здравствуйте! Я с сайта, хочу помыть машину перед заездом. Моя машина: " data-r>Записать машину перед заездом</a></div>
+</div></section>
+
 <!-- 18. работы: двигатель до/после + сетка -->
 <section id="works" style="padding-top:0"><div class="k" data-r>Работы</div><h2>Так машины<br><em>выезжают от нас</em></h2>
  <div class="wtop">
@@ -609,8 +665,8 @@ html.lock{overflow:hidden}
 
 <!-- ПОКА ЖДЁТЕ: сильная сторона из отзывов -->
 <section class="wait" id="wait">
- <div class="wh"><div><div class="k" data-r>Пока ждёте</div><h2>Кофе, Wi‑Fi<br><em>и никакой скуки</em></h2></div>
-  <p data-r>Мойка у нас дольше обычной, поэтому ждать удобно. <em>Про кофе и комнату ожидания клиенты часто пишут в отзывах.</em></p></div>
+ <div class="wh"><div><div class="k" data-r>Пока ждёте</div><h2>Кофе, ТВ<br><em>и никакой скуки</em></h2></div>
+  <p data-r>Мойка у нас дольше обычной, поэтому ждать удобно. <em>Про кофе и клиентскую зону клиенты часто пишут в отзывах.</em></p></div>
  <div class="bento" id="bento">
   <div class="bt big spot" data-r>
    <svg class="cup" viewBox="0 0 120 120" aria-hidden="true"><g class="stm"><path d="M44 40c-6-8 6-12 0-22"/><path d="M60 40c-6-8 6-12 0-22"/><path d="M76 40c-6-8 6-12 0-22"/></g><path d="M28 52h64v20a30 30 0 0 1-30 30h-4a30 30 0 0 1-30-30z" fill="none" stroke="currentColor" stroke-width="4"/><path d="M92 58h6a10 10 0 0 1 0 20h-8" fill="none" stroke="currentColor" stroke-width="4"/><path d="M22 108h76" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
@@ -618,7 +674,7 @@ html.lock{overflow:hidden}
    <h3>Кофе, пока моем</h3><p>Кафе прямо на мойке: кофе, чай, сладости и еда. Посидите в тепле, пока машину приводят в порядок.</p>
    <q>Создаётся ощущение «как дома», очень вкусный кофе и сладости</q><small>Евгения Б., отзыв на Картах</small></div>
   <div class="bt spot wifi" data-r><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><g class="wv"><path d="M9 16a4 4 0 0 1 6 0"/><path d="M6 12.5a8.5 8.5 0 0 1 12 0"/><path d="M3 9a13 13 0 0 1 18 0"/></g><circle cx="12" cy="19.5" r="1.2" fill="currentColor"/></svg></span><h3>Wi‑Fi</h3><p>Можно поработать или досмотреть сериал.</p></div>
-  <div class="bt spot" data-r><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18v-6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6M2 18h20M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/></svg></span><h3>Комната ожидания</h3><p>Уютно и тепло, рядом кафе.</p></div>
+  <div class="bt spot" data-r><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><h3>Клиентская зона</h3><p>Комфортное помещение с телевизором, тепло и рядом кафе.</p></div>
   <div class="bt wide spot" data-r><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Или оставьте машину</h3><p>Живёте или работаете рядом? Оставьте машину и заберите, когда напишем, что готово.</p>
    <q>Можно оставить машину и прийти, когда она будет сверкать и блестеть</q><small>Надежда П., отзыв на Картах</small></div>
  </div>
@@ -636,8 +692,8 @@ html.lock{overflow:hidden}
  <div class="tl" id="tl"><span class="tl-rail"><i class="tl-fill" id="tlFill"></i></span><span class="tl-dot" id="tlDot"></span>
   <div class="ts"><span class="num" data-n="01">01</span><div><h4>Пишете или звоните</h4><p>Мойка или детейлинг, какая машина. Подскажем цену и свободное время, можно прислать фото.</p><span class="tag">Telegram, WhatsApp, звонок</span></div></div>
   <div class="ts"><span class="num" data-n="02">02</span><div><h4>Приезжаете</h4><p>Верея, Островецкое шоссе, 3. Встретим у ворот и расскажем, что будем делать.</p><span class="tag">Парковка у мойки</span></div></div>
-  <div class="ts"><span class="num" data-n="03">03</span><div><h4>Моем и делаем</h4><p>Профессиональной химией, в 2–3 фазы, аккуратно. Вы в это время пьёте кофе.</p><span class="tag">Кофе и Wi‑Fi</span></div></div>
-  <div class="ts"><span class="num" data-n="04">04</span><div><h4>Забираете</h4><p>Владелец проверяет каждую машину лично и подскажет, как ухаживать за кузовом и салоном.</p><span class="tag">Проверка перед выдачей</span></div></div>
+  <div class="ts"><span class="num" data-n="03">03</span><div><h4>Моем и делаем</h4><p>Профессиональной химией, в 2–3 фазы, аккуратно. А вы в это время отдыхаете в клиентской зоне: комфортное помещение с телевизором, кофе и Wi‑Fi.</p><span class="tag">Клиентская зона с ТВ</span></div></div>
+  <div class="ts"><span class="num" data-n="04">04</span><div><h4>Забираете</h4><p>Администратор проверяет каждую машину перед выдачей и подскажет, как ухаживать за кузовом и салоном.</p><span class="tag">Проверка перед выдачей</span></div></div>
  </div></section>
 
 <!-- 23. вопросы. Ответы продублированы в JSON-LD FAQPage в <head> -->
@@ -646,7 +702,7 @@ html.lock{overflow:hidden}
   <div data-r><dt>Сколько стоит мойка?</dt><dd>Мойка в 3 фазы 2 500 ₽, мойка и консервация двигателя 3 000 ₽, антидождь 1 500 ₽. Цену комплекса с салоном подскажем в чате.</dd></div>
   <div data-r><dt>Сколько стоит детейлинг?</dt><dd>Полировка кузова от 12 000 ₽, керамика от 12 000 ₽, химчистка салона от 12 000 ₽, полировка фар 5 000 ₽, оклейка плёнкой от 70 000 ₽, тонировка от 7 000 ₽.</dd></div>
   <div data-r><dt>Где находится автомойка?</dt><dd>Деревня Верея, Островецкое шоссе, 3, Раменский округ. Ежедневно с 9:00 до 21:00, есть парковка.</dd></div>
-  <div data-r><dt>Можно подождать на месте?</dt><dd>Да. Есть кафе и комната ожидания, кофе, чай и Wi‑Fi. Можно и оставить машину и вернуться, когда будет готова.</dd></div>
+  <div data-r><dt>Можно подождать на месте?</dt><dd>Да. Есть клиентская зона: комфортное помещение с телевизором, кафе, кофе, чай и Wi‑Fi. Можно и оставить машину и вернуться, когда будет готова.</dd></div>
   <div data-r><dt>Моете мотоциклы и грузовики?</dt><dd>Да, моем мотоциклы и грузовики, днище, колёса и двигатель.</dd></div>
   <div data-r><dt>Как можно оплатить?</dt><dd>Наличными, картой или переводом, есть рассрочка.</dd></div>
  </dl></section>
@@ -702,10 +758,10 @@ const go=()=>$('.hero').classList.add('go');addEventListener('load',()=>setTimeo
 const onS=()=>{const y=scrollY;$('#nav').classList.toggle('s',y>40);$('#mbar').classList.toggle('on',y>innerHeight*.8)};addEventListener('scroll',onS,{passive:true});onS();
 // 12/13. появление один раз, лесенка в сетках
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15,rootMargin:'0px 0px -8% 0px'});
-$$('[data-r],[data-img],h2').forEach(el=>{const p=el.parentElement;if(p&&p.matches('.two,.bento'))el.style.transitionDelay=[...p.children].indexOf(el)*.1+'s';io.observe(el)});
+$$('[data-r],[data-img],h2').forEach(el=>{const p=el.parentElement;if(p&&p.matches('.two,.bento,.promo-g'))el.style.transitionDelay=[...p.children].indexOf(el)*.1+'s';io.observe(el)});
 $$('.wg .c').forEach((c,i)=>{c.querySelector('[data-img]').style.transitionDelay=(i%3)*.14+'s'});
 // бесконечные анимации на паузе, когда блок за экраном
-const vis=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('off',!e.isIntersecting)));['#map','#mq','#run','#bento','#wash','#contacts','#sum'].forEach(id=>vis.observe($(id)));
+const vis=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('off',!e.isIntersecting)));['#map','#mq','#run','#bento','#wash','#contacts','#sum','#promo','#sport'].forEach(id=>vis.observe($(id)));
 
 // SPOTLIGHT: свет идёт за курсором (только на ПК с мышью)
 if(HOVER)$$('.spot').forEach(el=>el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.setProperty('--mx',e.clientX-r.left+'px');el.style.setProperty('--my',e.clientY-r.top+'px')}));
@@ -793,8 +849,8 @@ const REV=[
  ['Иван Л.','Мойка двух машин','Долго проезжал мимо и решился заехать. И не пожалел! Цены, качество, обслуживание, всё на высоте. Моют в 2–3 фазы. Дольше, чем у простых моек, где всё тяп-ляп, но ожидание того стоит!'],
  ['Евгения Б.','Сервис','Очень приятное место, создаётся ощущение «как дома», очень вкусный кофе и сладости. Сюда хочется возвращаться! Рекомендую от души!'],
  ['Kaspiy K.','Комплекс, кварцевое покрытие','Весь процесс занял всего один час. Впервые диски были вымыты идеально с первого раза, и безупречная чистота в салоне.'],
- ['Людмила','Мойка','Приветливый хозяин всё рассказал, дал советы по уходу за автомобилем, объяснил, какую химию используют. Такой подход к клиентам внушает доверие.'],
- ['Алексей Н.','Мойка и полимер','Средства для мойки и детейлинга марочные и профессиональные. Владелец проверяет каждый авто лично. Нет навязывания дорогих и ненужных услуг.'],
+ ['Людмила','Мойка','Всё рассказали, дали советы по уходу за автомобилем, объяснили, какую химию используют. Такой подход к клиентам внушает доверие.'],
+ ['Алексей Н.','Мойка и полимер','Средства для мойки и детейлинга марочные и профессиональные. Отсутствует навязывание дорогих и ненужных услуг: могут только порекомендовать необходимые.'],
  ['Жанна Р.','Мойка','Вежливо пригласили в комнату ожидания. В кафе можно посидеть, есть кофе, чай. Самые приятные впечатления, приедем снова.'],
  ['Big B.','Мойка','Очень крутая мойка и профессионалы в работе. Езжу с Раменского, чтобы грамотно, аккуратно, а главное качественно помыть своего железного коня.'],
  ['Ева М.','Полировка двери','Приехали убрать след от удара дверью. Сделали так, что мы даже под лупой не смогли найти, где был след. Дверь как новая!'],
@@ -805,7 +861,7 @@ const REV=[
  ['Мария С.','Уход за машиной','Доступные цены, вежливый персонал, внимательный руководитель, и на выходе изумительная машинка, как бархат на ощупь!'],
  ['Сергей А.','Мойка','Приехал на очень грязной машине и уехал на чистой, как из салона. Машина останавливается у ворот, и сразу администратор встречает с улыбкой.'],
  ['Дина К.','Мойка','Машину помыли идеально, цены доступные, уютная комната ожидания. Видно, что руководство следит за всем.'],
- ['Alex L.','Мойка после керамики','Приехал помыть машину с керамикой. Ребята делают свою работу качественно, хозяин за работу отвечает. Результат правильной мойки очень порадовал.'],
+ ['Alex L.','Мойка после керамики','Приехал помыть машину с керамикой. Ребята делают свою работу качественно. Результат правильной мойки очень порадовал, буду теперь сюда ездить.'],
  ['Аноним','Детейлинг','Работают грамотные ребята, не торопясь и качественно. Доп. работы предлагают ненавязчиво, подробно объяснят зачем, решать всё равно вам.']];
 const esc=t=>t.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const card=r=>`<article class="rc"><div class="st5" aria-label="5 из 5">★★★★★</div><p>${esc(r[2])}</p><div class="who"><span class="av">${esc(r[0][0])}</span><span><b>${esc(r[0])}</b><small>${esc(r[1])}</small></span></div></article>`;
