@@ -241,9 +241,9 @@ nav .btn{height:48px;padding:0 24px}
 /* ФОТО НА ВЕСЬ ЭКРАН ПРИ СКРОЛЛЕ (Scroll Media Expansion, 21st.dev). JS ставит --p от 0 до 1 */
 .xp{padding:0;height:240vh}
 .xp-st{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;place-items:center;--p:0}
-.xp-m{position:absolute;inset:0;clip-path:inset(calc((1 - var(--p))*24%) calc((1 - var(--p))*31%) round calc((1 - var(--p))*32px));will-change:clip-path}
+.xp-m{position:absolute;inset:0;background:#1b1b1e;clip-path:inset(calc((1 - var(--p))*24%) calc((1 - var(--p))*31%) round calc((1 - var(--p))*32px));will-change:clip-path}
 .xp-m img{width:100%;height:100%;object-fit:cover;transform:scale(calc(1.25 - var(--p)*.25))}
-.xp-m:after{content:"";position:absolute;inset:0;background:rgba(8,8,9,calc(.15 + var(--p)*.45))}
+.xp-m:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,8,9,calc(.25 + var(--p)*.5)),rgba(8,8,9,.08) 60%)}
 .xp-w{position:relative;z-index:2;display:grid;justify-items:center;pointer-events:none;font:900 clamp(46px,9vw,150px)/.9 var(--head);text-transform:uppercase;letter-spacing:-.05em;text-align:center}
 .xp-w b{display:block;font-weight:inherit}
 .xp-w b:first-child{transform:translateX(calc(var(--p)*-30vw));opacity:calc(1 - var(--p)*1.4)}
@@ -585,7 +585,7 @@ html.lock{overflow:hidden}
 <!-- ФОТО РАСКРЫВАЕТСЯ НА ВЕСЬ ЭКРАН при прокрутке -->
 <section class="xp" id="xp" aria-label="Моем как свою">
  <div class="xp-st" id="xpSt">
-  <div class="xp-m"><img src="img/xp.jpg" alt="Audi в пене на мойке PRO Детейлинг" loading="lazy"></div>
+  <div class="xp-m"><img src="img/xp.jpg" alt="Audi в пене на мойке PRO Детейлинг" decoding="async"></div>
   <div class="xp-w" aria-hidden="true"><b>Моем</b><b>как свою</b></div>
   <div class="xp-q"><p>«Реально моют как свою, <em>машина как новая»</em></p><small>Елена А. · отзыв на Яндекс Картах</small></div>
  </div>
