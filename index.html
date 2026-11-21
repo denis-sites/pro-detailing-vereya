@@ -17,7 +17,7 @@
 <link rel="preload" href="fonts/inter-tight-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <!-- SEO (набор 2): карточка студии и вопросы. Цены тут только точные, с Яндекс Карт -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":["AutoRepair","AutoWash"],"name":"PRO Детейлинг центр","alternateName":["Про Детейлинг центр","Автомойка Верея"],"description":"Автомойка и детейлинг-центр в деревне Верея, Раменский округ: мойка в 3 фазы, полировка, химчистка, керамика, плёнка, тонировка.","url":"https://denis-sites.github.io/pro-detailing-vereya/","image":"https://denis-sites.github.io/pro-detailing-vereya/img/hero.jpg","logo":"https://denis-sites.github.io/pro-detailing-vereya/img/logo.jpg","telephone":"+7 936 555-59-09","priceRange":"1 500–70 000 ₽",
+{"@context":"https://schema.org","@type":["AutoRepair","AutoWash"],"name":"PRO Детейлинг центр","alternateName":["Про Детейлинг центр","Автомойка Верея"],"description":"Автомойка и детейлинг-центр в деревне Верея, Раменский округ: мойка в 3 фазы, полировка, химчистка, керамика, плёнка, тонировка.","url":"https://denis-sites.github.io/pro-detailing-vereya/","image":"https://denis-sites.github.io/pro-detailing-vereya/img/hero.jpg","logo":"https://denis-sites.github.io/pro-detailing-vereya/img/logo.jpg","telephone":"+7 936 555-59-09","priceRange":"800–70 000 ₽",
 "address":{"@type":"PostalAddress","streetAddress":"Островецкое шоссе, 3","addressLocality":"деревня Верея","addressRegion":"Московская область, Раменский городской округ","addressCountry":"RU"},
 "geo":{"@type":"GeoCoordinates","latitude":55.622317,"longitude":38.035363},
 "areaServed":["Верея","Раменское","Островцы","Раменский городской округ"],
@@ -30,6 +30,8 @@
  {"@type":"Offer","name":"Мойка в 3 фазы","price":"2500","priceCurrency":"RUB"},
  {"@type":"Offer","name":"Мойка и консервация двигателя","price":"3000","priceCurrency":"RUB"},
  {"@type":"Offer","name":"Антидождь","price":"1500","priceCurrency":"RUB"},
+ {"@type":"Offer","name":"Полимер после мойки","price":"800","priceCurrency":"RUB"},
+ {"@type":"Offer","name":"Кварцевое покрытие","price":"1000","priceCurrency":"RUB"},
  {"@type":"Offer","name":"Полировка кузова","price":"12000","priceCurrency":"RUB"},
  {"@type":"Offer","name":"Керамика, защитные составы","price":"12000","priceCurrency":"RUB"},
  {"@type":"Offer","name":"Химчистка салона","price":"12000","priceCurrency":"RUB"},
@@ -226,10 +228,11 @@ nav .btn{height:48px;padding:0 24px}
 
 /* СПОРТКАРЫ ПЕРЕД ЗАЕЗДОМ: полосы скорости бегут по фото. Фото заменить на McLaren / BMW, когда студия пришлёт */
 .sport{padding-top:0}
-.sp{position:relative;border-radius:28px;overflow:hidden;min-height:clamp(500px,72vh,660px);display:flex;align-items:flex-end;padding:clamp(24px,4vw,60px);isolation:isolate;border:1px solid var(--line)}
-.sp>img{position:absolute;inset:0;z-index:-3;width:100%;height:100%;object-fit:cover;object-position:60% 50%}
-.sp:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(9,9,10,.96),rgba(9,9,10,.7) 42%,rgba(9,9,10,.05) 80%)}
-.spd{position:absolute;inset:0;z-index:-2;overflow:hidden;pointer-events:none;mix-blend-mode:screen}
+.sp{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(30px,5vw,90px);align-items:center;border-radius:28px;padding:clamp(24px,4vw,60px);border:1px solid var(--line);background:radial-gradient(80% 90% at 85% 50%,rgba(var(--acc-rgb),.12),transparent 60%),linear-gradient(180deg,#141416,#0e0e10);overflow:hidden;isolation:isolate}
+.sp-ph{position:relative;aspect-ratio:3/4;max-height:640px;justify-self:end;width:100%;max-width:480px;border-radius:22px;overflow:hidden;--cover:#121214}
+.sp-ph>img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.sp-ph figcaption{position:absolute;z-index:3;left:14px;bottom:14px;font:700 11px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;background:rgba(11,11,12,.75);padding:9px 12px;border-radius:999px}
+.spd{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none;mix-blend-mode:screen}
 .spd i{position:absolute;left:0;height:2px;width:28%;background:linear-gradient(90deg,transparent,rgba(var(--acc-rgb),.9),#fff);transform:translateX(-120%);animation:spd var(--t,2.6s) cubic-bezier(.5,0,.5,1) infinite;animation-delay:var(--d0,0s);opacity:.7}
 @keyframes spd{to{transform:translateX(480%)}}
 .sport.off .spd i{animation-play-state:paused}
@@ -260,7 +263,7 @@ nav .btn{height:48px;padding:0 24px}
 .wfacts div{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid var(--line);color:var(--tx2);font-size:15.5px}.wfacts b{color:var(--tx);font-weight:600;text-align:right}
 .persp{perspective:1400px}
 .wcard{border-radius:30px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,#151517,#0f0f11);padding:clamp(18px,2.4vw,34px);box-shadow:0 0 0 1px rgba(0,0,0,.4),0 30px 80px -30px #000,0 0 120px -60px rgba(var(--acc-rgb),.4);transform-origin:50% 0;transform:rotateX(var(--rx,0deg)) scale(var(--sc,1));will-change:transform}
-.wt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding-top:10px}
+.wt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding-top:10px}
 .pr{position:relative;border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:22px 20px 20px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;transition:border-color .35s,transform .35s var(--ease)}
 .pr:hover{border-color:rgba(var(--acc-rgb),.5);transform:translateY(-4px)}
 .pr.hit{border-color:rgba(var(--acc-rgb),.6);background:rgba(var(--acc-rgb),.06)}
@@ -479,7 +482,7 @@ html.lock{overflow:hidden}
  .calc{max-width:none;margin-top:58px}
  .two,.wh,.wash,.ctc,.faq,.how,.wtop{grid-template-columns:minmax(0,1fr)}
  .promo-g{grid-template-columns:minmax(0,1fr)}.pc{min-height:0}
- .sp{align-items:flex-end}.sp:after{background:linear-gradient(0deg,rgba(9,9,10,.97) 35%,rgba(9,9,10,.55) 65%,rgba(9,9,10,.1))}
+ .sp{grid-template-columns:minmax(0,1fr)}.sp-ph{order:-1;justify-self:stretch;max-width:none;aspect-ratio:4/5}
  .wash .side,.how .side{position:static}
  .wt{grid-template-columns:minmax(0,1fr)}
  .pr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:14px;align-items:center}
@@ -585,7 +588,7 @@ html.lock{overflow:hidden}
 <!-- ФОТО РАСКРЫВАЕТСЯ НА ВЕСЬ ЭКРАН при прокрутке -->
 <section class="xp" id="xp" aria-label="Моем как свою">
  <div class="xp-st" id="xpSt">
-  <div class="xp-m"><img src="img/xp.jpg" alt="Audi в пене на мойке PRO Детейлинг" decoding="async"></div>
+  <div class="xp-m"><img src="img/xp.jpg" alt="Красный Ford Mustang в боксе PRO Детейлинг" decoding="async" style="object-position:50% 58%"></div>
   <div class="xp-w" aria-hidden="true"><b>Моем</b><b>как свою</b></div>
   <div class="xp-q"><p>«Реально моют как свою, <em>машина как новая»</em></p><small>Елена А. · отзыв на Яндекс Картах</small></div>
  </div>
@@ -598,15 +601,18 @@ html.lock{overflow:hidden}
   <div class="wfacts" data-r><div>Время<b>комплекс около 1–2 часов</b></div><div>Режим<b>ежедневно 9:00–21:00</b></div><div>Пока моем<b>клиентская зона, ТВ, кофе</b></div></div></div>
  <div class="persp"><div class="wcard" id="wcard">
   <div class="wt">
-   <div class="pr hit"><span class="hb">Популярное</span><h3>3 фазы</h3><p>Кузов и колёса, без разводов</p><b>2 500 ₽</b><small>по прайсу на Картах</small><a class="btn a" href="#book" data-book data-msg="Здравствуйте! Я с сайта, хочу на мойку в 3 фазы. Моя машина: ">Записаться</a></div>
+   <div class="pr"><h3>2 фазы</h3><p>Кузов и колёса, быстрее и дешевле</p><b class="f" style="font-size:22px;color:var(--mut)">уточним</b><small>цену подскажем в чате</small><a class="btn o" href="#book" data-book data-msg="Здравствуйте! Я с сайта, хочу на двухфазную мойку. Моя машина: ">Записаться</a></div>
+   <div class="pr hit"><span class="hb">Популярное</span><h3>3 фазы</h3><p>Кузов и колёса без разводов. С багажником: ещё чернение резины и воск</p><b>2 500 ₽</b><small>по прайсу на Картах</small><a class="btn a" href="#book" data-book data-msg="Здравствуйте! Я с сайта, хочу на мойку в 3 фазы. Моя машина: ">Записаться</a></div>
    <div class="pr"><h3>Комплекс</h3><p>Кузов и салон внутри</p><b class="o">2 600 ₽</b><small>ориентир, цену подскажем</small><a class="btn o" href="#book" data-book data-msg="Здравствуйте! Я с сайта, хочу комплексную мойку. Моя машина: ">Записаться</a></div>
    <div class="pr"><h3>Двигатель</h3><p>Мойка и консервация</p><b>3 000 ₽</b><small>по прайсу на Картах</small><a class="btn o" href="#book" data-book data-msg="Здравствуйте! Я с сайта, хочу помыть двигатель. Моя машина: ">Записаться</a></div>
   </div>
   <div class="adds"><h4>Добавить к мойке</h4>
    <div class="row">Антидождь: передняя полусфера или по кругу<b>от 1 500 ₽</b></div>
-   <div class="row">Чистка дисков<b class="o">1 000 ₽</b></div>
-   <div class="row">Полимер после мойки<b class="o">1 000 ₽</b></div>
-   <div class="row">Удаление битума и липы с кузова<b class="o">2 500 ₽</b></div></div>
+   <div class="row">Чистка дисков с удалением металлических вкраплений<b class="o">1 000 ₽</b></div>
+   <div class="row">Чернение резины<b class="f">уточним</b></div>
+   <div class="row">Кварцевое покрытие<b>1 000 ₽</b></div>
+   <div class="row">Полимер после мойки<b>800 ₽</b></div>
+   <div class="row">Химчистка кузова: битум, липа, металлические вкрапления<b class="o">2 500 ₽</b></div></div>
   <div class="also"><h4>Ещё моем</h4><div><span>Мотоциклы</span><span>Грузовики</span><span>Днище</span><span>Колёса</span><span>Бесконтактная</span><span>Ручная</span></div></div>
   <div class="wcta"><span>Цены для седана. ≈ ориентир, точную сумму скажем в чате за пару минут.</span><a class="btn a sh" href="#book" data-book data-msg="Здравствуйте! Я с сайта, хочу записаться на мойку. Моя машина: ">Записаться на мойку</a></div>
  </div></div>
@@ -631,14 +637,13 @@ html.lock{overflow:hidden}
  <p class="legend" data-r>Цены «от», с прайса на Яндекс Картах. Точную сумму назовём после осмотра, без навязывания лишнего.</p>
 </section>
 
-<!-- СПОРТКАРЫ ПЕРЕД ЗАЕЗДОМ (рядом гоночная трасса). Фото img/w4.jpg временное, заменить на McLaren / BMW от студии -->
+<!-- СПОРТКАРЫ ПЕРЕД ЗАЕЗДОМ (рядом гоночная трасса). Фото McLaren 720S из инстаграма студии -->
 <section class="sport" id="sport"><div class="sp">
- <img src="img/w4.jpg" alt="Матовая Audi R8 в боксе PRO Детейлинг" loading="lazy">
- <span class="spd" aria-hidden="true"><i style="top:18%;--t:2.4s"></i><i style="top:34%;--t:3.1s;--d0:-1.2s"></i><i style="top:52%;--t:2.2s;--d0:-.6s"></i><i style="top:67%;--t:2.8s;--d0:-2s"></i><i style="top:81%;--t:3.4s;--d0:-1.6s"></i></span>
  <div class="tx"><div class="k" data-r>Спорткары и трек</div><h2>Блеск<br><em>перед заездом</em></h2>
-  <p data-r>Рядом гоночная трасса, поэтому к нам заезжают помыть машину перед заездом и после. Мыли и McLaren, и самую быструю BMW. Бережно, вручную, с блеском, который видно на фото с трека.</p>
+  <p data-r>Рядом гоночная трасса, поэтому к нам заезжают помыть машину перед заездом и после. Мыли McLaren 720S, Porsche 911 Turbo S и BMW M5 CS. Бережно, вручную, с блеском, который видно на фото с трека.</p>
   <ul data-r><li>Перед заездом</li><li>После трека</li><li>Ручная мойка</li><li>Блеск и защита</li></ul>
   <a class="btn a" href="#book" data-book data-msg="Здравствуйте! Я с сайта, хочу помыть машину перед заездом. Моя машина: " data-r>Записать машину перед заездом</a></div>
+ <figure class="sp-ph" data-img><img src="img/sp-mclaren.jpg" alt="Жёлтый McLaren 720S и Porsche 911 Turbo S после мойки у PRO Детейлинг" loading="lazy"><span class="spd" aria-hidden="true"><i style="top:18%;--t:2.4s"></i><i style="top:34%;--t:3.1s;--d0:-1.2s"></i><i style="top:52%;--t:2.2s;--d0:-.6s"></i><i style="top:67%;--t:2.8s;--d0:-2s"></i><i style="top:81%;--t:3.4s;--d0:-1.6s"></i></span><figcaption>McLaren 720S</figcaption></figure>
 </div></section>
 
 <!-- 18. работы: двигатель до/после + сетка -->
@@ -656,10 +661,10 @@ html.lock{overflow:hidden}
  <div class="wg" id="wg">
   <div class="c" data-t="Porsche Panamera" data-p="Из нашего бокса"><div class="ph" data-img><img src="img/w1.jpg" alt="Porsche Panamera в боксе" loading="lazy"></div><h3>Porsche Panamera</h3><p>Из нашего бокса</p></div>
   <div class="c" data-t="Audi A6" data-p="Блеск после мойки"><div class="ph" data-img><img src="img/w2.jpg" alt="Чёрная Audi A6 после мойки" loading="lazy"></div><h3>Audi A6</h3><p>Блеск после мойки</p></div>
-  <div class="c" data-t="BMW 5" data-p="В боксе мойки"><div class="ph" data-img><img src="img/w3.jpg" alt="BMW 5 в боксе мойки" loading="lazy"></div><h3>BMW 5</h3><p>В боксе мойки</p></div>
+  <div class="c" data-t="Audi S3" data-p="В боксе мойки"><div class="ph" data-img><img src="img/w3.jpg" alt="Синий Audi S3 в боксе мойки" loading="lazy"></div><h3>Audi S3</h3><p>В боксе мойки</p></div>
   <div class="c" data-t="Audi R8" data-p="Матовый кузов после мойки"><div class="ph" data-img><img src="img/w4.jpg" alt="Матовая Audi R8 после мойки" loading="lazy" style="object-position:40% 50%"></div><h3>Audi R8</h3><p>Матовый кузов после мойки</p></div>
   <div class="c" data-t="Porsche" data-p="Диски после чистки"><div class="ph" data-img><img src="img/w5.jpg" alt="Белый Porsche, чистые диски" loading="lazy"></div><h3>Porsche</h3><p>Диски после чистки</p></div>
-  <div class="c" data-t="Bentley Continental" data-p="Двигатель после мойки"><div class="ph" data-img><img src="img/w6.jpg" alt="Двигатель Bentley после мойки" loading="lazy"></div><h3>Bentley</h3><p>Двигатель после мойки</p></div>
+  <div class="c" data-t="BMW M5 CS" data-p="После мойки"><div class="ph" data-img><img src="img/w6.jpg" alt="Чёрный BMW M5 CS после мойки" loading="lazy"></div><h3>BMW M5 CS</h3><p>После мойки</p></div>
  </div>
 </section>
 
@@ -767,7 +772,7 @@ const vis=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('
 if(HOVER)$$('.spot').forEach(el=>el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.setProperty('--mx',e.clientX-r.left+'px');el.style.setProperty('--my',e.clientY-r.top+'px')}));
 
 // 22. КАЛЬКУЛЯТОР. [название, цена для седана, true = цена с Яндекс Карт]. false = ОРИЕНТИР, заменить, когда студия пришлёт прайс
-const CALC=[['Мойка в 3 фазы',2500,true],['Чистка дисков',1000,false],['Полировка',12000,true],['Химчистка',12000,true],['Керамика',12000,true],['Антидождь',1500,true],['Двигатель',3000,true]];
+const CALC=[['Мойка в 3 фазы',2500,true],['Чистка дисков',1000,false],['Полировка',12000,true],['Химчистка',12000,true],['Керамика',12000,true],['Антидождь',1500,true],['Кварц',1000,true],['Двигатель',3000,true]];
 // кузов: коэффициент к цене. Кроссовер и внедорожник = ОРИЕНТИР, уточнить у студии
 const BODY=[['седан',1],['кроссовер',1.2],['внедорожник',1.4]];
 const fmt=n=>n.toLocaleString('ru-RU').replace(/\s/g,' ');
